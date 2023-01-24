@@ -17,6 +17,22 @@ WorkerManager::WorkerManager() // 构造函数
         ifs.close();
         return;
     }
+    // 文件存在，但是数据为空
+    char ch;
+    ifs >> ch;
+    if (ifs.eof())
+    {
+        // 文件为空
+        cout << "文件为空！" << endl;
+        //  初始化记录人数
+        this->m_EmpNum = 0;
+        // 初始化数组指针
+        this->m_EmpArray = NULL;
+        // 初始化文件是否为空
+        this->m_FileIsEmpty = true;
+        ifs.close();
+        return;
+    }
     // 初始化属性
     this->m_EmpNum = 0;
     this->m_EmpArray = NULL;
@@ -104,6 +120,8 @@ void WorkerManager::Add_Emp()
         this->m_EmpArray = newSpace;
         // 更新新的职工人数
         this->m_EmpNum = newSize;
+        //更新职工不为空的标志
+        this->m_FileIsEmpty = false;
         // 提示添加成功
         cout << "成功添加" << addNum << "名新职工!" << endl;
         // 保存数据到文件中
