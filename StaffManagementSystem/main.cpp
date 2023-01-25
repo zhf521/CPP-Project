@@ -32,6 +32,7 @@ int main()
             wm.mod_Emp();
             break;
         case 5: // 查找职工
+            wm.find_Emp();
             break;
         case 6: // 排序职工
             break;

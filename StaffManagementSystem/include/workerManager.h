@@ -40,6 +40,8 @@ public:
     int isExist(int id);
     //修改职工
     void mod_Emp();
+    //查找职工
+    void find_Emp();
     // 析构函数
     ~WorkerManager();
 };
