@@ -35,6 +35,7 @@ int main()
             wm.find_Emp();
             break;
         case 6: // 排序职工
+            wm.sort_Emp();
             break;
         case 7: // 清空文档
             break;

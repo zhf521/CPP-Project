@@ -34,14 +34,16 @@ public:
     void init_Emp();
     // 显示员工
     void show_Emp();
-    //删除员工
+    // 删除员工
     void del_Emp();
-    //判断员工是否存在，如果存在返回职工所在数组中位置，不存在返回-1
+    // 判断员工是否存在，如果存在返回职工所在数组中位置，不存在返回-1
     int isExist(int id);
-    //修改职工
+    // 修改职工
     void mod_Emp();
-    //查找职工
+    // 查找职工
     void find_Emp();
+    // 按职工编号排序
+    void sort_Emp();
     // 析构函数
     ~WorkerManager();
 };

@@ -215,6 +215,9 @@ void WorkerManager::show_Emp()
     if (this->m_FileIsEmpty)
     {
         cout << "文件不存在或记录为空！" << endl;
+        // 按任意键后清屏
+        system("pause");
+        system("cls");
     }
     else
     {
@@ -398,6 +401,53 @@ void WorkerManager::find_Emp()
     // 按任意键后清屏
     system("pause");
     system("cls");
+}
+// 按职工编号排序
+void WorkerManager::sort_Emp()
+{
+    if (this->m_FileIsEmpty)
+    {
+        cout << "文件不存在或记录为空！" << endl;
+    }
+    else
+    {
+        cout << "请选择排序方式：" << endl;
+        cout << "1、按职工号进行升序" << endl;
+        cout << "2、按职工号进行降序" << endl;
+        int select = 0;
+        cin >> select;
+        for (int i = 0; i < m_EmpNum; i++)
+        {
+            int MinOrMax = i; // 声明最小值或最大值下标
+            for (int j = i + 1; j < this->m_EmpNum; j++)
+            {
+                if (select == 1) // 升序
+                {
+                    if (this->m_EmpArray[MinOrMax]->m_Id > this->m_EmpArray[j]->m_Id)
+                    {
+                        MinOrMax = j;
+                    }
+                }
+                else // 降序
+                {
+                    if (this->m_EmpArray[MinOrMax]->m_Id < this->m_EmpArray[j]->m_Id)
+                    {
+                        MinOrMax = j;
+                    }
+                }
+            }
+            // 判断一开始认定最小值或最大值是不是计算的最小值或最大值，如果不是，交换数据
+            if (i != MinOrMax)
+            {
+                Worker *temp = this->m_EmpArray[i];
+                this->m_EmpArray[i] = this->m_EmpArray[MinOrMax];
+                this->m_EmpArray[MinOrMax] = temp;
+            }
+        }
+    }
+    cout << "排序成功！排序后的结果为：" << endl;
+    this->save();     // 排序后的结果保存到文件中
+    this->show_Emp(); // 展示所有职工
 }
 WorkerManager::~WorkerManager()
 {
