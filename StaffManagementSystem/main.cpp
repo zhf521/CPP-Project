@@ -26,8 +26,10 @@ int main()
             wm.show_Emp();
             break;
         case 3: // 删除职工
+            wm.del_Emp();
             break;
         case 4: // 修改职工
+            wm.mod_Emp();
             break;
         case 5: // 查找职工
             break;
